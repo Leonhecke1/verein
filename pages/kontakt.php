@@ -1,19 +1,13 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $name = trim($_POST["name"] ?? '');
+    $name = htmlspecialchars(trim($_POST["name"] ?? ''));
     $email = filter_var(trim($_POST["email"] ?? ''), FILTER_VALIDATE_EMAIL);
-    $message = trim($_POST["message"] ?? '');
+    $message = htmlspecialchars(trim($_POST["message"] ?? ''));
 
     if ($name && $email && $message) {
-        // Encode HTML special characters only on output (not necessary for email)
-        $name_safe = htmlspecialchars($name, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
-        $message_safe = htmlspecialchars($message, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
-
         $to = "leonhe377@gmail.com";
-
-        $subject = mb_encode_mimeheader("Kontaktformular – Gemüsegenossen", "UTF-8");
-
-        $headers = "From: kontakt@deinedomain.de\r\n";
+        $subject = "Kontaktformular – Gemüsegenossen";
+        $headers = "From: $email\r\n";
         $headers .= "Reply-To: $email\r\n";
         $headers .= "Content-Type: text/plain; charset=utf-8\r\n";
 
@@ -49,5 +43,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     header("Location: kontakt.html");
     exit;
 }
-
 ?>
