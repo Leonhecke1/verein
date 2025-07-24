@@ -34,14 +34,23 @@
 
 <main class="container py-5 mt-5">
 
-<h1 class="text-success mb-4">Kontakt</h1>
-<p>Du hast Fragen zu unserem Verein, möchtest Mitglied werden oder mit uns ein Event umsetzen? Dann schreib uns!</p>
-<form class="row g-3">
-  <div class="col-md-6"><input type="text" class="form-control" placeholder="Name" required></div>
-  <div class="col-md-6"><input type="email" class="form-control" placeholder="E-Mail" required></div>
-  <div class="col-12"><textarea class="form-control" rows="5" placeholder="Deine Nachricht"></textarea></div>
-  <div class="col-12"><button class="btn btn-success">Senden</button></div>
-</form>
+  <h1 class="text-success mb-4">Kontakt</h1>
+  <p>Du hast Fragen zu unserem Verein, möchtest Mitglied werden oder mit uns ein Event umsetzen? Dann schreib uns!</p>
+
+  <form class="row g-3" method="POST" action="kontakt.php">
+    <div class="col-md-6">
+      <input type="text" class="form-control" placeholder="Name" name="name" required>
+    </div>
+    <div class="col-md-6">
+      <input type="email" class="form-control" placeholder="E-Mail" name="email" required>
+    </div>
+    <div class="col-12">
+      <textarea class="form-control" rows="5" placeholder="Deine Nachricht" name="message" required></textarea>
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-success">Senden</button>
+    </div>
+  </form>
 
 </main>
 
