@@ -205,7 +205,7 @@
         }
     ];
 
-    const cardsPerPage = 6;
+    const cardsPerPage = 4;
     let currentPage = 1;
     let filteredData = [...gemueseData]; // Filter-Array für Suche
 
@@ -237,7 +237,7 @@
         } else {
             pageItems.forEach((gemuese, index) => {
                 const card = document.createElement('div');
-                card.className = 'col-md-4';
+                card.className = 'col-md-6';
                 card.innerHTML = `
                 <div class="card shadow-sm h-100">
                     <div class="card-body d-flex flex-column">
