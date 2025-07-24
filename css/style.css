@@ -1,8 +1,6 @@
 
 html { scroll-behavior: smooth; }
 
-footer{
-    position: absolute;
-    width: 100%;
-    bottom: 0;
+main{
+    min-height: calc(100vh - 72px - 40px );
 }
