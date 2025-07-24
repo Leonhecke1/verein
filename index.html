@@ -148,24 +148,25 @@
 
   <section id="kontakt" class="container py-5">
     <h2 class="text-success mb-5">Kontakt</h2>
-    <form class="row g-3" novalidate>
+    <form class="row g-3" method="POST" action="./pages/kontakt.php" novalidate>
       <div class="col-md-6">
         <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
-        <input id="name" type="text" class="form-control" placeholder="Name" required>
+        <input id="name" name="name" type="text" class="form-control" placeholder="Name" required>
       </div>
       <div class="col-md-6">
         <label for="email" class="form-label">E-Mail <span class="text-danger">*</span></label>
-        <input id="email" type="email" class="form-control" placeholder="E-Mail" required>
+        <input id="email" name="email" type="email" class="form-control" placeholder="E-Mail" required>
       </div>
       <div class="col-12">
         <label for="message" class="form-label">Nachricht</label>
-        <textarea id="message" class="form-control" rows="5" placeholder="Nachricht..."></textarea>
+        <textarea id="message" name="message" class="form-control" rows="5" placeholder="Nachricht..."></textarea>
       </div>
       <div class="col-12">
         <button type="submit" class="btn btn-success">Absenden</button>
       </div>
     </form>
   </section>
+
 </main>
 
 <footer class="bg-success text-white text-center py-3">
