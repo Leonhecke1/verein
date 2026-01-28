@@ -1,181 +1,89 @@
 <!DOCTYPE html>
-<html lang="de" data-bs-theme="light">
+<html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gemüsegenossen Dresden n.e.V. – Solidarische Landwirtschaft & vegane Kultur</title>
-  <meta name="description" content="Die Gemüsegenossen Dresden n.e.V. vereinen vegane Ernährung, Nachhaltigkeit und kreative Events. Jetzt Mitglied werden und Teil der solidarischen Landwirtschaft in Dresden sein.">
-  <meta name="keywords" content="Gemüsegenossen, Dresden, vegane Ernährung, solidarische Landwirtschaft, Events, Verein, nachhaltig, Bio, Gemüse, vegan, Workshops, Zero Waste, regionale Landwirtschaft">
-  <meta name="author" content="Gemüsegenossen n.e.V.">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
-  <style>
-    /* Inline CSS für größere Abstände und feine Anpassungen */
-    section {
-      margin-bottom: 5rem;
-      padding-top: 4rem;
-      padding-bottom: 4rem;
-    }
-    header.hero {
-      min-height: 70vh;
-      background: linear-gradient(rgba(34, 139, 34, 0.75), rgba(34, 139, 34, 0.75)), url('https://source.unsplash.com/1600x900/?vegan,organic,farm') no-repeat center center/cover;
-    }
-    /* Scroll-to-top Button */
-    a.btn-success.position-fixed {
-      width: 3.5rem;
-      height: 3.5rem;
-      font-size: 1.5rem;
-      line-height: 3.5rem;
-      text-align: center;
-      opacity: 0.8;
-      transition: opacity 0.3s ease;
-      z-index: 1030;
-    }
-    a.btn-success.position-fixed:hover {
-      opacity: 1;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucas' Geburtstags-Turnier</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top shadow">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/index.html">Gemüsegenossen</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="mainNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="/index.html#about">Über uns</a></li>
-        <li class="nav-item"><a class="nav-link" href="/index.html#angebot">Angebot</a></li>
-        <li class="nav-item"><a class="nav-link" href="/pages/events.html">Events</a></li>
-        <li class="nav-item"><a class="nav-link" href="/pages/mitglieder.html">Mitglieder</a></li>
-        <li class="nav-item"><a class="nav-link" href="/pages/rezepte.html">Rezepte</a></li>
-        <li class="nav-item"><a class="nav-link" href="/pages/kontakt.html">Kontakt</a></li>
-        <li class="nav-item"><a class="nav-link" href="/pages/faq.html">FAQ</a></li>
-        <li class="nav-item"><a class="nav-link" href="/pages/guide.html">Anbauguide</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
 
-<header class="hero text-white d-flex align-items-center justify-content-center text-center">
-  <div>
-    <h1 class="display-3 fw-bold">Gemüsegenossen Dresden n.e.V.</h1>
-    <p class="lead fs-4">Solidarisch explosiver Bierkonsum trifft kreative vegane Lebensweise</p>
-    <a href="#angebot" class="btn btn-light btn-lg mt-3">Mehr erfahren</a>
-  </div>
-</header>
-
-<main class="mt-5 pt-5">
-  <section id="about" class="container py-5">
-    <div class="row align-items-center">
-      <div class="col-md-6">
-        <h2 class="text-success mb-4">Wer wir sind</h2>
-        <p>Die Gemüsegenossen Dresden n.e.V. sind ein gemeinnütziger Verein, der sich für eine nachhaltige, vegane Lebensweise und solidarische Landwirtschaft einsetzt. Unser Ziel ist es, die lokale Bio-Landwirtschaft zu fördern und eine starke Gemeinschaft aus Gleichgesinnten aufzubauen, die sich aktiv für Umwelt- und Tierschutz engagieren.</p>
-        <p>Durch regelmäßige Treffen, kreative Events und Workshops schaffen wir Raum für Austausch, Bildung und gemeinsames Handeln. Bei uns steht die Verbindung von Mensch, Natur und Tierwohl im Mittelpunkt.</p>
-      </div>
-      <div class="col-md-6">
-        <img src="https://plus.unsplash.com/premium_vector-1682269720249-2c4e3277d7d2?q=80&w=1115&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="img-fluid rounded shadow" alt="Frisches Gemüse">
-      </div>
-    </div>
-  </section>
-
-  <section id="angebot" class="bg-light py-5">
-    <div class="container text-center">
-      <h2 class="text-success mb-5">Unser Angebot</h2>
-      <div class="row">
-        <div class="col-md-4 mb-4">
-          <h4>🥬 Gemüse-Abos</h4>
-          <p>Frisches, saisonales Gemüse direkt vom Feld zu dir nach Hause – regional und nachhaltig angebaut. Unsere Abonnements fördern kurze Lieferketten und unterstützen die lokale Landwirtschaft.</p>
+    <header class="text-center py-4">
+        <div class="container">
+            <h1><i class="bi bi-cake2-fill"></i> Lucas' Geburtstags-Turnier <i class="bi bi-cake2-fill"></i></h1>
+            <p class="lead hairline">Tische fairer gelost als seine Haaransatz-Gene.</p>
         </div>
-        <div class="col-md-4 mb-4">
-          <h4>🍸 Cocktail-Abende</h4>
-          <p>Genieße vegane Drinks in entspannter Atmosphäre. Unsere Events bieten die perfekte Gelegenheit, neue Menschen kennenzulernen und nachhaltige Genusskultur zu erleben.</p>
-        </div>
-        <div class="col-md-4 mb-4">
-          <h4>🎓 Workshops</h4>
-          <p>Lerne alles über Fermentation, Zero Waste und nachhaltige Küchenpraxis. Unsere praxisorientierten Workshops geben dir wertvolles Wissen für einen umweltbewussten Alltag.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </header>
 
-  <section id="events" class="container py-5">
-    <h2 class="text-success text-center mb-5">Kommende Events</h2>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card p-3 shadow-sm h-100">
-          <h5>🥕 Cocktail-Nacht</h5>
-          <p>15.08.2025 – Vegane Drinks und gute Musik in gemütlicher Runde.</p>
+    <main class="container">
+        <div class="row g-5">
+            <!-- Linke Spalte: Spieler-Management -->
+            <div class="col-lg-5">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header">
+                        <h2 class="h4 mb-0">Spieler hinzufügen</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="input-group">
+                            <input type="text" id="player-name" class="form-control" placeholder="Spielername...">
+                            <button id="add-player-btn" class="btn btn-primary">Hinzufügen</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card shadow-sm">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h2 class="h4 mb-0">Teilnehmer</h2>
+                        <span id="player-count-badge" class="badge bg-secondary rounded-pill">0 Spieler</span>
+                    </div>
+                    <div class="card-body">
+                        <ul id="player-list" class="list-group">
+                            <!-- Spieler werden hier per JS hinzugefügt -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rechte Spalte: Ergebnisse -->
+            <div class="col-lg-7">
+                <div class="text-center mb-4">
+                    <button id="generate-tables-btn" class="btn btn-success btn-lg">
+                        <i class="bi bi-shuffle"></i> Tische jetzt auslosen!
+                    </button>
+                </div>
+
+                <div id="tables-container">
+                    <!-- Tische werden hier per JS hinzugefügt -->
+                </div>
+                
+                <div id="export-section" class="card shadow-sm mt-4" style="display: none;">
+                    <div class="card-body text-center">
+                        <h3 class="h5 mb-3 hairline">Fertig?</h3>
+                        <button id="export-pdf-btn" class="btn btn-outline-danger me-2">
+                            <i class="bi bi-file-earmark-pdf-fill"></i> Als PDF speichern
+                        </button>
+                        <button id="share-btn" class="btn btn-outline-success">
+                            <i class="bi bi-share-fill"></i> Teilen
+                        </button>
+                        <button id="reset-app-btn" class="btn btn-outline-warning ms-3">
+                            <i class="bi bi-arrow-counterclockwise"></i> Zurücksetzen
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card p-3 shadow-sm h-100">
-          <h5>🍅 Tomaten-Party</h5>
-          <p>22.09.2025 – Feiere mit uns die Vielfalt der Tomaten und leckere vegane Rezepte.</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card p-3 shadow-sm h-100">
-          <h5>🌿 Fermentation Workshop</h5>
-          <p>05.10.2025 – Entdecke die Kunst der Fermentation und probiere selbstgemachte Köstlichkeiten.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </main>
 
-  <section id="blog" class="bg-light py-5">
-    <div class="container">
-      <h2 class="text-success text-center mb-5">Aus dem Blog</h2>
-      <div class="row g-4">
-        <div class="col-md-6">
-          <div class="p-4 bg-white shadow rounded h-100">
-            <h4>Zero Waste Küche leicht gemacht</h4>
-            <p>Erfahre, wie du deinen Küchenalltag müllfrei gestaltest und Lebensmittelverschwendung vermeidest – mit praktischen Tipps und einfachen Rezepten.</p>
-            <a href="/pages/blog/zero-waste.html" class="link-success">Weiterlesen &raquo;</a>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="p-4 bg-white shadow rounded h-100">
-            <h4>Solidarische Landwirtschaft – Zukunftsmodell</h4>
-            <p>Warum solidarische Landwirtschaft mehr ist als ein Trend und wie sie die Landwirtschaft von morgen nachhaltiger macht.</p>
-            <a href="/pages/blog/solidarische-landwirtschaft.html" class="link-success">Weiterlesen &raquo;</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="kontakt" class="container py-5">
-    <h2 class="text-success mb-5">Kontakt</h2>
-    <form class="row g-3" method="POST" action="./pages/kontakt.php" novalidate>
-      <div class="col-md-6">
-        <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
-        <input id="name" name="name" type="text" class="form-control" placeholder="Name" required>
-      </div>
-      <div class="col-md-6">
-        <label for="email" class="form-label">E-Mail <span class="text-danger">*</span></label>
-        <input id="email" name="email" type="email" class="form-control" placeholder="E-Mail" required>
-      </div>
-      <div class="col-12">
-        <label for="message" class="form-label">Nachricht</label>
-        <textarea id="message" name="message" class="form-control" rows="5" placeholder="Nachricht..."></textarea>
-      </div>
-      <div class="col-12">
-        <button type="submit" class="btn btn-success">Absenden</button>
-      </div>
-    </form>
-  </section>
-
-</main>
-
-<footer class="bg-success text-white text-center py-3">
-  <p>&copy; 2025 Gemüsegenossen Dresden n.e.V. | <a href="/datenschutz.html" class="text-white text-decoration-underline">Datenschutz</a> | <a href="/impressum.html" class="text-white text-decoration-underline">Impressum</a></p>
-</footer>
-
-<a href="#" class="btn btn-success position-fixed bottom-0 end-0 m-4 rounded-circle shadow" aria-label="Nach oben">↑</a>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/script.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
 </body>
 </html>

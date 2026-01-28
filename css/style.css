@@ -1,6 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-html { scroll-behavior: smooth; }
+:root {
+    --primary-hue: 210; /* Blue hue */
+    --primary-color: hsl(var(--primary-hue), 85%, 65%); /* Lighter blue for dark theme */
+    --primary-light: hsla(var(--primary-hue), 85%, 65%, 0.15); /* For subtle highlights */
+    
+    --background-color: #1a1a2e; /* Very dark background */
+    --surface-color: #2b2b48; /* Slightly lighter for cards */
+    --card-header-bg: #3a3a5e; /* Even lighter for card headers */
+    
+    --text-color: #e0e0f0; /* Light text on dark background */
+    --text-muted: #a0a0c0; /* Muted text */
+    --border-color: #3f3f6e; /* Subtle border */
+    
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --shadow-color-hover: rgba(0, 0, 0, 0.4);
+}
 
-main{
-    min-height: calc(100vh - 72px - 40px );
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+header {
+    margin-bottom: 2.5rem; /* Add some space below the header */
+    border-bottom: 5px solid transparent;
+    border-image: linear-gradient(to right, var(--primary-color), var(--background-color), var(--primary-color));
+    border-image-slice: 1;
+}
+
+header h1 {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+header .bi-cake2-fill {
+    color: var(--primary-color);
+    opacity: 0.9;
+}
+
+.lead {
+    color: var(--text-muted);
+}
+
+.card {
+    border: 1px solid var(--border-color); /* Add a subtle border for definition */
+    border-radius: 12px;
+    background-color: var(--surface-color);
+    box-shadow: 0 4px 6px var(--shadow-color), 0 10px 20px var(--shadow-color);
+    transition: all 0.3s ease;
+}
+.hairline{
+    color: var(--text-color);
+}
+
+.card:hover {
+    box-shadow: 0 4px 6px var(--shadow-color-hover), 0 12px 24px var(--shadow-color-hover);
+    transform: translateY(-2px);
+}
+
+.card-header {
+    background-color: var(--card-header-bg);
+    border-bottom: 1px solid var(--border-color);
+    border-radius: 12px 12px 0 0 !important;
+}
+
+.card-header h2 {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+#player-name.form-control {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px 0 0 8px;
+    transition: border-color 0.2s ease;
+}
+#player-name.form-control::placeholder {
+    color: var(--text-muted);
+}
+#player-name.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--primary-light);
+    background-color: var(--background-color); /* Ensure background doesn't change on focus */
+    color: var(--text-color);
+}
+
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    border-radius: 0 8px 8px 0;
+}
+.btn-primary:hover {
+    background-color: hsl(var(--primary-hue), 85%, 70%);
+    border-color: hsl(var(--primary-hue), 85%, 70%);
+}
+
+.btn-lg {
+    border-radius: 12px;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--primary-color); /* Ensure consistency */
+    border-color: var(--primary-color); /* Ensure consistency */
+}
+.btn-lg:hover {
+    background-color: hsl(var(--primary-hue), 85%, 70%); /* Darker hover for dark theme */
+    border-color: hsl(var(--primary-hue), 85%, 70%);
+}
+.btn-success {
+    background-color: #28a745; /* Standard Bootstrap green */
+    border-color: #28a745;
+}
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.list-group-item {
+    background-color: var(--surface-color);
+    border-color: var(--border-color);
+    color: var(--text-color);
+    position: relative; /* Needed for absolute positioning of the child button */
+    padding-right: 3rem; /* Make space for the button */
+}
+
+.list-group-item:first-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.badge {
+    font-weight: 500;
+    background-color: var(--primary-color); /* Use primary for badges */
+    color: var(--background-color); /* Dark text on light badge */
+}
+.badge.bg-secondary {
+    background-color: var(--text-muted) !important;
+}
+.badge.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+
+.remove-player {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%) scale(0.8);
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    background-color: var(--card-header-bg);
+    color: var(--text-muted);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.list-group-item:hover .remove-player {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+}
+
+.remove-player:hover {
+    background-color: hsl(350, 70%, 60%); /* Subdued red */
+    color: #fff;
+}
+
+.table-card .card-header {
+    background-color: var(--card-header-bg); /* Use card header bg for consistency */
+}
+
+.table-card .card-header h3 {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+#export-section .card {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+}
+.btn-outline-danger {
+    color: #dc3545;
+    border-color: #dc3545;
+}
+.btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: #fff;
+}
+.btn-outline-success {
+    color: #28a745;
+    border-color: #28a745;
+}
+.btn-outline-success:hover {
+    background-color: #28a745;
+    color: #fff;
 }
